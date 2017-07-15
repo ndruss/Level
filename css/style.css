@@ -1,0 +1,54 @@
+.flex, body, .level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+body {
+  height: 100vh;
+  background: #333; }
+
+.level {
+  width: 300px;
+  height: 300px; }
+
+.target {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 4px #888;
+  position: relative; }
+
+.marker {
+  background: #a2fa66;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.output {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #222;
+  color: #888;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px; }
+
+body.debug {
+  height: auto; }

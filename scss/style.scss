@@ -1,0 +1,58 @@
+$green: #a2fa66;
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  @extend .flex;
+  height: 100vh;
+  background: #333;
+}
+
+.level {
+  @extend .flex;
+  width: 300px;
+  height: 300px;
+}
+
+.target {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 4px #888;
+  position: relative;
+}
+
+$b: 40px;
+
+.marker {
+  background: $green;
+  width: $b;
+  height: $b;
+  top: $b/4;
+  left: $b/4;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.output {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #222;
+  color: #888;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+
+body.debug {
+  height: auto;
+}
