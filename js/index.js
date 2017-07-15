@@ -1,13 +1,13 @@
 
 
 var level = document.querySelector('.level'),
+  target = document.querySelector('.target'),
   ball = document.querySelector('.marker'),
+  ballGreen = '#a2fa66',
   ob = document.querySelector('.beta'),
   og = document.querySelector('.gamma'),
-  debug = document.getElementById('debug');
-
-// var maxX = level.clientWidth  - ball.clientWidth;
-// var maxY = level.clientHeight - ball.clientHeight;
+  debug = document.getElementById('debug'),
+  debugOpacity = document.getElementById('debug-opacity');
 
 function handleOrientation(event) {
   var x = event.gamma.toFixed(1); // In degree in the range [-90,90]
@@ -25,17 +25,9 @@ function handleOrientation(event) {
     y = -90;
   }
 
-  // To make computation easier we shift the range of 
-  // x and y to [0,180]
+  // To make computation easier we shift the range of x and y to [0,180]
   y += 90;
   x += 90;
-
-  // var r = ball.clientWidth/2;
-  // ball.style.top  = (maxX*x/180 - r) + "px";
-  // ball.style.left = (maxY*y/180 - r) + "px";
-
-
-  ball.style.transform = 'translate('+ x +'px, '+ y +'px)';
 
   var offset,
     ax = Math.abs(x),
@@ -45,8 +37,24 @@ function handleOrientation(event) {
   } else {
     offset = ax;
   }
+
+  var opacity = 1 - offset/50;
+  opacity = opacity.toFixed(2);
+
+  if (offset < 1) {
+    target.style.borderColor = ballGreen;
+  } else {
+    target.style.borderColor = '#888';
+  }
   
   debug.innerHTML = offset;
+  debugOpacity.innerHTML = opacity;
+  
+  // Update position
+  ball.style.transform = 'translate('+ x +'px, '+ y +'px)';
+  //Update opacity
+  ball.style.opacity = opacity;
+
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
