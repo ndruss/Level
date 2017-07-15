@@ -52,7 +52,7 @@ function handleOrientation(event) {
   
   // Update position
   ball.style.transform = 'translate('+ x +'px, '+ y +'px)';
-  //Update opacity
+
   ball.style.opacity = opacity;
 
 }
