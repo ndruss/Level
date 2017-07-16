@@ -24,9 +24,9 @@ $b: 60px;
   width: $b;
   height: $b;
   border-radius: 50%;
-  border: solid 4px #888;
+  border: solid 2px #888;
   position: relative;
-  transition: border-color .2s ease-in;
+  transition: border-color .3s ease-in;
 }
 
 .marker {
@@ -39,6 +39,7 @@ $b: 60px;
   position: absolute;
   transform: translate(0,0);
   opacity: 1;
+  transition: opacity .2s ease-in;
 }
 
 .output {
@@ -50,9 +51,13 @@ $b: 60px;
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
+  display: none;
 }
 
 
 body.debug {
   height: auto;
+  .output {
+    display: block;
+  }
 }

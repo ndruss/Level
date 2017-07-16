@@ -25,10 +25,10 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: solid 4px #888;
+  border: solid 2px #888;
   position: relative;
-  -webkit-transition: border-color .2s ease-in;
-  transition: border-color .2s ease-in; }
+  -webkit-transition: border-color .3s ease-in;
+  transition: border-color .3s ease-in; }
 
 .marker {
   background: #a2fa66;
@@ -40,7 +40,9 @@ body {
   position: absolute;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transition: opacity .2s ease-in;
+  transition: opacity .2s ease-in; }
 
 .output {
   position: fixed;
@@ -50,7 +52,10 @@ body {
   color: #888;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px; }
+  padding: 20px;
+  display: none; }
 
 body.debug {
   height: auto; }
+  body.debug .output {
+    display: block; }

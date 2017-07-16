@@ -41,19 +41,22 @@ function handleOrientation(event) {
   var opacity = 1 - offset/50;
   opacity = opacity.toFixed(2);
 
-  if (offset < 1) {
-    target.style.borderColor = ballGreen;
-  } else {
-    target.style.borderColor = '#888';
-  }
-  
-  debug.innerHTML = offset;
-  debugOpacity.innerHTML = opacity;
+  if (document.querySelector('.debug')) {
+    debug.innerHTML = offset;
+    debugOpacity.innerHTML = opacity;
+  }  
   
   // Update position
   ball.style.transform = 'translate('+ x +'px, '+ y +'px)';
+  // Update opacity
+  ball.style.opacity = opacity*0.85;
 
-  ball.style.opacity = opacity;
+  if (offset < 1) {
+    target.style.borderColor = ballGreen;
+    ball.style.opacity = 1;
+  } else {
+    target.style.borderColor = '#888';
+  }
 
 }
 
