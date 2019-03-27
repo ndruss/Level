@@ -2,3 +2,4 @@
 
 *.codekit3,
 .gitattributes
+.DS_Store
